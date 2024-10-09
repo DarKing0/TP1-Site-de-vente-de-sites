@@ -27,26 +27,24 @@ body {
     height: auto; /* Maintenez le ratio d'aspect */
 }
 
-@keyframes rotateAndFade {
+@keyframes slideOut {
     0% {
+        transform: translateX(0);
         opacity: 1;
-        transform: rotate(0deg);
-    }
-    50% {
-        opacity: 0;
-        transform: rotate(180deg);
     }
     100% {
-        opacity: 1;
-        transform: rotate(0deg);
+        transform: translateX(100%);
+        opacity: 0;
     }
 }
 
-@keyframes fadeIn {
+@keyframes slideIn {
     0% {
+        transform: translateX(-100%);
         opacity: 0;
     }
     100% {
+        transform: translateX(0);
         opacity: 1;
     }
 }
@@ -57,7 +55,7 @@ body {
 
 .title.active {
     display: block;
-    animation: rotateAndFade 2s ease-in-out forwards;
+    animation: slideOut 2s ease forwards; /* Animation de sortie */
 }
 
 .subtitle {
@@ -66,17 +64,5 @@ body {
 
 .subtitle.active {
     display: block;
-    animation: fadeIn 2s ease-in-out forwards;
+    animation: slideIn 1s ease forwards; /* Animation d'entrée */
 }
-
-.animated {
-    opacity: 0;
-    transition: opacity 0.5s ease;
-}
-
-.title.active, .subtitle.active {
-    opacity: 1;
-}
-
-
-

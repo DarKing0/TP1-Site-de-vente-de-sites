@@ -71,10 +71,10 @@
     
     
     <main class="container mx-auto py-16 px-6 text-center">
-        <h1 class="title active text-4xl font-semibold text-gray-900 animated">Bienvenue sur CSBWS !</h1>
-        <h2 class="subtitle text-4xl font-semibold text-gray-900 animated">Créate, Sell and Buy your own website !</h2>
-
+        <h1 class="title active text-4xl font-semibold text-gray-900">Bienvenue sur CSBWS !</h1>
+        <h2 class="subtitle text-4xl font-semibold text-gray-900">Créate, Sell and Buy your own website !</h2>
     
+
             <p class="mt-4 text-lg text-gray-600 animated rollIn">Ici, vous pouvez acheter, créer ou vendre des sites Internet facilement.</p>
             <p class="mt-2 text-lg text-gray-600 animated rollIn">Découvrez des milliers de thèmes, modèles, et types de sites, y compris HTML, PHP, WordPress et bien plus encore.</p>
             <div class="mt-8 flex flex-col md:flex-row justify-center">
@@ -116,25 +116,27 @@
     menuToggle.addEventListener('click', () => {
         mobileMenu.classList.toggle('hidden');
     });
-
+    
     let title = document.querySelector('.title');
 let subtitle = document.querySelector('.subtitle');
 
-// Initial state
-let isTitleVisible = true;
-
-setInterval(() => {
-    if (isTitleVisible) {
-        title.classList.remove('active');
-        subtitle.classList.add('active');
+function toggleText() {
+    if (title.classList.contains('active')) {
+        title.classList.remove('active'); // Le titre disparaît
+        subtitle.classList.add('active');  // Le sous-titre apparaît
     } else {
-        subtitle.classList.remove('active');
-        title.classList.add('active');
+        subtitle.classList.remove('active'); // Le sous-titre disparaît
+        title.classList.add('active');  // Le titre réapparaît
     }
-    isTitleVisible = !isTitleVisible; // Toggle visibility
-}, 4000); // Change de texte toutes les 4 secondes
+}
 
-</script>
+// Affiche le titre au départ
+title.classList.add('active');
+
+// Démarre l'alternance
+setInterval(toggleText, 4000); // Change toutes les 4 secondes
+
+    </script>
 
 
 </html>
