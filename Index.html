@@ -7,7 +7,10 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet"/>
-    <link rel="stylesheet" href="Styles.css"> <!-- Lien vers le fichier CSS -->
+    <link rel="stylesheet" href="css/styles.css"> <!-- Lien vers le fichier CSS -->
+	<!-- Animate.css -->
+	<link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="tailwindcss/tailwind.css">
 
 </head>
 <body class="bg-gray-50">
@@ -16,61 +19,122 @@
             <div class="flex items-center">
                 <img alt="Logo CSBWS" class="h-12" src="image/Logo_marque_prêt_à_porter_moderne_coloré__1_-removebg-preview.png" width="150"/>
             </div>
-            <div class="flex items-center space-x-4 ml-auto">
-                <a class="hover:underline" href="#">Acheter</a>
-                <a class="hover:underline" href="#">Vendre</a>
-                <a class="hover:underline" href="#">Créer</a>
-                <a class="hover:underline" href="#">Se Connecter</a>
+            <div class="hidden md:flex items-center space-x-4 ml-auto">
+                <a class="hover:text-blue-500 transition duration-300" href="#">Acheter</a>
+                <a class="hover:text-blue-500 transition duration-300" href="#">Vendre</a>
+                <a class="hover:text-blue-500 transition duration-300" href="#">Créer</a>
+                <a class="hover:text-blue-500 transition duration-300" href="#">Se Connecter</a>
                 <i class="fas fa-shopping-cart"></i>
             </div>
+            <div class="md:hidden flex items-center">
+                <a class="hover:text-blue-500 transition duration-300 mr-2" href="#">Se Connecter</a>
+                <button id="menu-toggle" class="focus:outline-none">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
         </div>
-        <div class="bg-gray-000">
+        <div class="bg-gray-000 md:flex hidden">
             <div class="container mx-auto flex justify-between items-center py-2 px-6">
                 <nav class="space-x-4">
-                    <a class="text-gray-300 hover:text-white" href="#">Tous les Articles</a>
-                    <a class="text-gray-300 hover:text-white" href="#">Sites HTML</a>
-                    <a class="text-gray-300 hover:text-white" href="#">Sites PHP</a>
-                    <a class="text-gray-300 hover:text-white" href="#">Sites C#</a>
-                    <a class="text-gray-300 hover:text-white" href="#">Sites WordPress</a>
-                    <a class="text-gray-300 hover:text-white" href="#">Sites JavaScript</a>
-                    <a class="text-gray-300 hover:text-white" href="#">Sites Python</a>
-                    <a class="text-gray-300 hover:text-white" href="#">Sites Ruby</a>
-                    <a class="text-gray-300 hover:text-white" href="#">UI Templates</a>
-                    <a class="text-gray-300 hover:text-white" href="#">Plugins</a>
-                    <a class="text-gray-300 hover:text-white" href="#">Plus</a>
+                    <a class="text-gray-300 hover:text-blue-500 transition duration-300" href="#">Tous les Articles</a>
+                    <a class="text-gray-300 hover:text-blue-500 transition duration-300" href="#">Sites HTML</a>
+                    <a class="text-gray-300 hover:text-blue-500 transition duration-300" href="#">Sites PHP</a>
+                    <a class="text-gray-300 hover:text-blue-500 transition duration-300" href="#">Sites C#</a>
+                    <a class="text-gray-300 hover:text-blue-500 transition duration-300" href="#">Sites WordPress</a>
+                    <a class="text-gray-300 hover:text-blue-500 transition duration-300" href="#">Sites JavaScript</a>
+                    <a class="text-gray-300 hover:text-blue-500 transition duration-300" href="#">Sites Python</a>
+                    <a class="text-gray-300 hover:text-blue-500 transition duration-300" href="#">Sites Ruby</a>
+                    <a class="text-gray-300 hover:text-blue-500 transition duration-300" href="#">UI Templates</a>
+                    <a class="text-gray-300 hover:text-blue-500 transition duration-300" href="#">Plugins</a>
+                    <a class="text-gray-300 hover:text-blue-500 transition duration-300" href="#">Plus</a>
+                </nav>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden bg-gray-000 md:hidden">
+            <div class="container mx-auto py-2 px-6">
+                <nav class="flex flex-col space-y-2">
+                    <a class="text-gray-300 hover:text-blue-500 transition duration-300" href="#">Tous les Articles</a>
+                    <a class="text-gray-300 hover:text-blue-500 transition duration-300" href="#">Sites HTML</a>
+                    <a class="text-gray-300 hover:text-blue-500 transition duration-300" href="#">Sites PHP</a>
+                    <a class="text-gray-300 hover:text-blue-500 transition duration-300" href="#">Sites C#</a>
+                    <a class="text-gray-300 hover:text-blue-500 transition duration-300" href="#">Sites WordPress</a>
+                    <a class="text-gray-300 hover:text-blue-500 transition duration-300" href="#">Sites JavaScript</a>
+                    <a class="text-gray-300 hover:text-blue-500 transition duration-300" href="#">Sites Python</a>
+                    <a class="text-gray-300 hover:text-blue-500 transition duration-300" href="#">Sites Ruby</a>
+                    <a class="text-gray-300 hover:text-blue-500 transition duration-300" href="#">UI Templates</a>
+                    <a class="text-gray-300 hover:text-blue-500 transition duration-300" href="#">Plugins</a>
+                    <a class="text-gray-300 hover:text-blue-500 transition duration-300" href="#">Plus</a>
                 </nav>
             </div>
         </div>
     </header>
-    <main class="container mx-auto py-16 px-6">
-        <div class="text-center">
-            <h1 class="text-4xl font-semibold text-gray-900">Bienvenue sur CSBWS !</h1>
-            <p class="mt-4 text-lg text-gray-600">Ici, vous pouvez acheter, créer ou vendre des sites Internet facilement.</p>
-            <p class="mt-2 text-lg text-gray-600">Découvrez des milliers de thèmes, modèles, et types de sites, y compris HTML, PHP, WordPress et bien plus encore.</p>            <div class="mt-8 flex justify-center">
-                <input class="w-1/2 p-4 border border-gray-300 rounded-l-lg" placeholder="ex. : WordPress responsive" type="text"/>
-                <button class="bg-green-500 text-white px-6 py-4 rounded-r-lg">Recherche</button>
-            </div>
-        </div>
+    
+    
+    <main class="container mx-auto py-16 px-6 text-center">
+        <h1 class="title active text-4xl font-semibold text-gray-900 animated">Bienvenue sur CSBWS !</h1>
+        <h2 class="subtitle text-4xl font-semibold text-gray-900 animated">Créate, Sell and Buy your own website !</h2>
 
-        <div class="mt-16 flex justify-center space-x-8"> <!-- Ajustez l'espace ici si nécessaire -->
-            <div class="flex flex-col items-center">
-                <h3 class="text-green-500 mt-2">Acheter</h3>
-                <img href="Acheter.html" alt="Image du meilleur thème WooCommerce" class="image-size rounded-lg shadow-lg" src="https://storage.googleapis.com/a1aa/image/zFyIO9DuvIopJhed0XY69FArzxCtM7K2a23JOq2zceo1GukTA.jpg"/>
-            </div>
-        
-            <div class="flex flex-col items-center">
-                <h3 class="text-blue-500 mt-2">Vendre</h3>
-                <img alt="Image du meilleur thème créatif" class="image-size rounded-lg shadow-lg" src="https://storage.googleapis.com/a1aa/image/gRCEw7XIEoY3J5KODQngovVfBRJNSfHBLzRVHcnOkrm3GukTA.jpg"/>
-            </div>
-        
-            <div class="flex flex-col items-center">
-                <h3 class="text-yellow-500 mt-2">Créer</h3>
-                <img alt="Image du thème Uncode" class="image-size rounded-lg shadow-lg" src="https://storage.googleapis.com/a1aa/image/CDadD7fyZbxScaNMyM1NYUvfHcfCDrGQ57rEJOjx2eeG3wlcC.jpg"/>
+    
+            <p class="mt-4 text-lg text-gray-600 animated rollIn">Ici, vous pouvez acheter, créer ou vendre des sites Internet facilement.</p>
+            <p class="mt-2 text-lg text-gray-600 animated rollIn">Découvrez des milliers de thèmes, modèles, et types de sites, y compris HTML, PHP, WordPress et bien plus encore.</p>
+            <div class="mt-8 flex flex-col md:flex-row justify-center">
+                <input class="w-full md:w-1/2 p-4 border border-gray-300 rounded-l-lg" placeholder="ex. : WordPress responsive" type="text"/>
+                <button class="bg-blue-500 text-white px-6 py-4 rounded-r-lg mt-2 md:mt-0">Recherche</button>
             </div>
         </div>
-        
-        
-        
+    
+        <div class="mt-16 flex flex-col md:flex-row justify-center space-x-0 md:space-x-8"> <!-- Ajustements pour l'espace -->
+            <div class="flex flex-col items-center mb-8 md:mb-0">
+                <a href="acheter.html" class="transition transform hover:scale-105">
+                    <img alt="Image du meilleur thème WooCommerce" class="image-size rounded-lg shadow-lg" src="https://storage.googleapis.com/a1aa/image/zFyIO9DuvIopJhed0XY69FArzxCtM7K2a23JOq2zceo1GukTA.jpg"/>
+                    <span class="mt-2 block text-center text-blue-500">Acheter</span>
+                </a>
+            </div>
+
+            <div class="flex flex-col items-center mb-8 md:mb-0">
+                <a href="vendre.html" class="transition transform hover:scale-105">
+                    <img alt="Image du meilleur thème créatif" class="image-size rounded-lg shadow-lg" src="https://storage.googleapis.com/a1aa/image/gRCEw7XIEoY3J5KODQngovVfBRJNSfHBLzRVHcnOkrm3GukTA.jpg"/>
+                    <span class="mt-2 block text-center text-blue-500">Vendre</span>
+                </a>
+            </div>
+
+            <div class="flex flex-col items-center mb-8 md:mb-0">
+                <a href="creer.html" class="transition transform hover:scale-105">
+                    <img alt="Image du thème Uncode" class="image-size rounded-lg shadow-lg" src="https://storage.googleapis.com/a1aa/image/CDadD7fyZbxScaNMyM1NYUvfHcfCDrGQ57rEJOjx2eeG3wlcC.jpg"/>
+                    <span class="mt-2 block text-center text-blue-500">Créer</span>
+                </a>
+            </div>
+
+        </div>
     </main>
 </body>
+
+<script>
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    menuToggle.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+    });
+
+    let title = document.querySelector('.title');
+let subtitle = document.querySelector('.subtitle');
+
+// Initial state
+let isTitleVisible = true;
+
+setInterval(() => {
+    if (isTitleVisible) {
+        title.classList.remove('active');
+        subtitle.classList.add('active');
+    } else {
+        subtitle.classList.remove('active');
+        title.classList.add('active');
+    }
+    isTitleVisible = !isTitleVisible; // Toggle visibility
+}, 4000); // Change de texte toutes les 4 secondes
+
+</script>
+
+
 </html>
