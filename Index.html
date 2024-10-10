@@ -69,29 +69,31 @@
         </div>
     </header>
     
-    
-    <main class="container mx-auto py-16 px-6 text-center">
-        <h1 class="title active text-4xl font-semibold text-gray-900">Bienvenue sur CSBWS !</h1>
-        <h2 class="subtitle text-4xl font-semibold text-gray-900">Créate, Sell and Buy your own website !</h2>
-    
-
-            <p class="mt-4 text-lg text-gray-600 animated rollIn">Ici, vous pouvez acheter, créer ou vendre des sites Internet facilement.</p>
-            <p class="mt-2 text-lg text-gray-600 animated rollIn">Découvrez des milliers de thèmes, modèles, et types de sites, y compris HTML, PHP, WordPress et bien plus encore.</p>
-            <div class="mt-8 flex flex-col md:flex-row justify-center">
-                <input class="w-full md:w-1/2 p-4 border border-gray-300 rounded-l-lg" placeholder="ex. : WordPress responsive" type="text"/>
-                <button class="bg-blue-500 text-white px-6 py-4 rounded-r-lg mt-2 md:mt-0">Recherche</button>
-            </div>
+    <main class="main-container container mx-auto py-16 px-4 md:px-6 text-center">
+        <div class="flex justify-center items-center space-x-4">
+            <h1 class="title active text-4xl font-semibold text-gray-900">Bienvenue sur CSBWS !</h1>
+            <h2 class="subtitle text-4xl font-semibold text-gray-900 hidden">Créez, Vendez et Achetez des Sites Internet Facilement !</h2>
         </div>
     
-        <div class="mt-16 flex flex-col md:flex-row justify-center space-x-0 md:space-x-8"> <!-- Ajustements pour l'espace -->
+        <p class="mt-4 text-lg text-gray-600 animated rollIn">Ici, vous pouvez acheter, créer ou vendre des sites Internet facilement.</p>
+        <p class="mt-2 text-lg text-gray-600 animated rollIn">Découvrez des milliers de thèmes, modèles, et types de sites, y compris HTML, PHP, WordPress et bien plus encore.</p>
+        <div class="mt-8 flex flex-col md:flex-row justify-center">
+            <input class="w-full md:w-1/2 p-4 border border-gray-300 rounded-l-lg" placeholder="ex. : WordPress responsive" type="text"/>
+            <button class="bg-blue-500 text-white px-6 py-4 rounded-r-lg mt-2 md:mt-0">Recherche</button>
+        </div>
+        
+        <div class="mt-16 flex flex-col md:flex-row justify-center space-x-0 md:space-x-8">
             <div class="flex flex-col items-center mb-8 md:mb-0">
                 <a href="acheter.html" class="transition transform hover:scale-105">
                     <img alt="Image du meilleur thème WooCommerce" class="image-size rounded-lg shadow-lg" src="https://storage.googleapis.com/a1aa/image/zFyIO9DuvIopJhed0XY69FArzxCtM7K2a23JOq2zceo1GukTA.jpg"/>
-                    <span class="mt-2 block text-center text-blue-500">Acheter</span>
+                    <span class="mt-2 block text-center text-blue-500">Voir les sites</span>
                 </a>
             </div>
+        </div>
+    </main>
+    
 
-            <div class="flex flex-col items-center mb-8 md:mb-0">
+            <!-- <div class="flex flex-col items-center mb-8 md:mb-0">
                 <a href="vendre.html" class="transition transform hover:scale-105">
                     <img alt="Image du meilleur thème créatif" class="image-size rounded-lg shadow-lg" src="https://storage.googleapis.com/a1aa/image/gRCEw7XIEoY3J5KODQngovVfBRJNSfHBLzRVHcnOkrm3GukTA.jpg"/>
                     <span class="mt-2 block text-center text-blue-500">Vendre</span>
@@ -103,11 +105,21 @@
                     <img alt="Image du thème Uncode" class="image-size rounded-lg shadow-lg" src="https://storage.googleapis.com/a1aa/image/CDadD7fyZbxScaNMyM1NYUvfHcfCDrGQ57rEJOjx2eeG3wlcC.jpg"/>
                     <span class="mt-2 block text-center text-blue-500">Créer</span>
                 </a>
-            </div>
+            </div> 
 
         </div>
-    </main>
+    </main>-->
 </body>
+
+<footer class="bg-gray-900 text-white py-4">
+    <div class="container mx-auto text-center">
+        <p class="text-sm">© 2024 CSBWS. Tous droits réservés.</p>
+        <nav class="space-x-4">
+            <a href="#" class="hover:text-blue-500">Politique de confidentialité</a>
+            <a href="#" class="hover:text-blue-500">Conditions d'utilisation</a>
+        </nav>
+    </div>
+</footer>
 
 <script>
     const menuToggle = document.getElementById('menu-toggle');
@@ -116,27 +128,35 @@
     menuToggle.addEventListener('click', () => {
         mobileMenu.classList.toggle('hidden');
     });
+
+    // Fermer le menu si on clique à l'extérieur
+    document.addEventListener('click', (event) => {
+        const isClickInsideMenu = mobileMenu.contains(event.target);
+        const isClickOnToggle = menuToggle.contains(event.target);
+    
+        if (!isClickInsideMenu && !isClickOnToggle) {
+            mobileMenu.classList.add('hidden'); // Cache le menu
+        }
+    });
     
     let title = document.querySelector('.title');
-let subtitle = document.querySelector('.subtitle');
+    let subtitle = document.querySelector('.subtitle');
 
-function toggleText() {
-    if (title.classList.contains('active')) {
-        title.classList.remove('active'); // Le titre disparaît
-        subtitle.classList.add('active');  // Le sous-titre apparaît
-    } else {
-        subtitle.classList.remove('active'); // Le sous-titre disparaît
-        title.classList.add('active');  // Le titre réapparaît
+    function toggleText() {
+        if (title.classList.contains('active')) {
+            title.classList.remove('active'); // Le titre disparaît
+            subtitle.classList.add('active');  // Le sous-titre apparaît
+        } else {
+            subtitle.classList.remove('active'); // Le sous-titre disparaît
+            title.classList.add('active');  // Le titre réapparaît
+        }
     }
-}
 
-// Affiche le titre au départ
-title.classList.add('active');
+    // Affiche le titre au départ
+    title.classList.add('active');
 
-// Démarre l'alternance
-setInterval(toggleText, 4000); // Change toutes les 4 secondes
+    // Démarre l'alternance
+    setInterval(toggleText, 6000); // Change toutes les 4 secondes
 
-    </script>
-
-
+</script>
 </html>

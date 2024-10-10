@@ -2,7 +2,13 @@
 
 body {
     font-family: 'Inter', sans-serif;
+    overflow-x: hidden; /* Empêche le défilement horizontal */
 }
+
+.main-container {
+    overflow: hidden; /* Cache tout débordement */
+}
+
 
 .bg-gray-000 {
  background-color: rgb(0, 64, 83);
@@ -27,42 +33,29 @@ body {
     height: auto; /* Maintenez le ratio d'aspect */
 }
 
-@keyframes slideOut {
-    0% {
-        transform: translateX(0);
-        opacity: 1;
-    }
-    100% {
-        transform: translateX(100%);
-        opacity: 0;
-    }
+img {
+    max-width: 100%; /* Les images ne dépassent pas la largeur de leur conteneur */
+    height: auto; /* Maintient le ratio d'aspect */
 }
 
-@keyframes slideIn {
-    0% {
-        transform: translateX(-100%);
-        opacity: 0;
-    }
-    100% {
-        transform: translateX(0);
-        opacity: 1;
-    }
-}
 
 .title {
-    display: none;
+    display: block;
+    animation: rollOut 2s ease forwards; /* Animation de sortie */
 }
 
 .title.active {
     display: block;
-    animation: slideOut 2s ease forwards; /* Animation de sortie */
+    animation: rollIn 2s ease forwards; /* Animation de sortie */
 }
 
 .subtitle {
-    display: none;
+    display: block;
+    animation: rollOut 2s ease forwards; /* Animation de sortie */
+
 }
 
 .subtitle.active {
     display: block;
-    animation: slideIn 1s ease forwards; /* Animation d'entrée */
+    animation: rollIn 1s ease forwards; /* Animation d'entrée */
 }
