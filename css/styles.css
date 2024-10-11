@@ -38,24 +38,15 @@ img {
     height: auto; /* Maintient le ratio d'aspect */
 }
 
-
-.title {
-    display: block;
-    animation: rollOut 2s ease forwards; /* Animation de sortie */
+.animated-title {
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
 }
-
-.title.active {
-    display: block;
-    animation: rollIn 2s ease forwards; /* Animation de sortie */
+  
+.rollIn {
+    animation-name: rollIn;
 }
-
-.subtitle {
-    display: block;
-    animation: rollOut 2s ease forwards; /* Animation de sortie */
-
-}
-
-.subtitle.active {
-    display: block;
-    animation: rollIn 1s ease forwards; /* Animation d'entrée */
+  
+.rollOut {
+    animation-name: rollOut;
 }

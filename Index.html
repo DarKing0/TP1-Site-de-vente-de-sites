@@ -71,9 +71,9 @@
     </header>
     
     <main class="main-container container mx-auto py-16 px-4 md:px-6 text-center">
-        <div class="flex justify-center items-center space-x-4">
-            <h1 class="title active text-4xl font-semibold text-gray-900">Bienvenue sur CSBWS !</h1>
-            <h2 class="subtitle text-4xl font-semibold text-gray-900 hidden">Créez, Vendez et Achetez des Sites Internet Facilement !</h2>
+        <div class="flex items-center justify-center">
+            <h1 class="text-4xl font-semibold text-gray-900 animated-title rollIn" id="title">Bienvenue sur CSBWS !</h1>
+            <h2 class="hidden text-4xl font-semibold text-gray-900 animated-title" id="subtitle">Créate, Sell and Buy your own WebSites !</h2>
         </div>
     
         <p class="mt-4 text-lg text-gray-600 animated rollIn">Ici, vous pouvez acheter, créer ou vendre des sites Internet facilement.</p>
@@ -140,24 +140,35 @@
         }
     });
     
-    let title = document.querySelector('.title');
-    let subtitle = document.querySelector('.subtitle');
+    document.addEventListener("DOMContentLoaded", () => {
+      const title = document.getElementById("title");
+      const subtitle = document.getElementById("subtitle");
+      const animationDuration = 2000; // Duration of rollOut animation
+      const intervalDuration = 6000; // Total interval duration for toggling
 
-    function toggleText() {
-        if (title.classList.contains('active')) {
-            title.classList.remove('active'); // Le titre disparaît
-            subtitle.classList.add('active');  // Le sous-titre apparaît
+      function toggleAnimation(currentElement, nextElement) {
+        currentElement.classList.remove("rollIn");
+        currentElement.classList.add("rollOut");
+
+        // Wait for the animation to complete before switching visibility
+        setTimeout(() => {
+          currentElement.classList.add("hidden");
+          currentElement.classList.remove("rollOut");
+          nextElement.classList.remove("hidden");
+          nextElement.classList.add("rollIn");
+        }, animationDuration);
+      }
+
+      function toggleText() {
+        if (!title.classList.contains("hidden")) {
+          toggleAnimation(title, subtitle);
         } else {
-            subtitle.classList.remove('active'); // Le sous-titre disparaît
-            title.classList.add('active');  // Le titre réapparaît
+          toggleAnimation(subtitle, title);
         }
-    }
+      }
 
-    // Affiche le titre au départ
-    title.classList.add('active');
-
-    // Démarre l'alternance
-    setInterval(toggleText, 6000); // Change toutes les 4 secondes
-
+      // Start the text toggle loop
+      setInterval(toggleText, intervalDuration);
+    });
 </script>
 </html>
